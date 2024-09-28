@@ -1,0 +1,32 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/macbookpro/Docs_1A/JPEG_encoder/src_for_color'
+clang -c write_ppm.c
+clang -c decoupe.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o decoupe.o decoupe.c
+clang -c DCT.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o DCT.o DCT.c
+clang -c downsampling.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o downsampling.o downsampling.c
+clang -c PPM_FILE.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o PPM_FILE.o PPM_FILE.c
+clang -c quantification.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o quantification.o quantification.c
+clang -c RGB_Couleur.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o RGB_Couleur.o RGB_Couleur.c
+clang -c RLE.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o RLE.o RLE.c
+clang -c traitement.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o traitement.o traitement.c
+clang -c zigzag.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o zigzag.o zigzag.c
+clang -c huffman.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o huffman.o huffman.c
+clang -c jpeg_writer.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o jpeg_writer.o jpeg_writer.c
+clang -c bitstream.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o bitstream.o bitstream.c
+clang -c magnitude.c
+clang -Wall -Wextra -std=c99 -O0 -g   -c -o magnitude.o magnitude.c
+clang -o ppm_generator write_ppm.o decoupe.o downsampling.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o htables_prof_mac.o huffman.o jpeg_writer.o bitstream.o magnitude.o -lm
+make: Leaving directory `/Users/macbookpro/Docs_1A/JPEG_encoder/src_for_color'
+ 
