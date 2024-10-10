@@ -10,8 +10,8 @@ LDFLAGS =
 
 all:img_generator
 
-img_generator : write_img.o decoupe_pgm.o DCT.o PGM_FILE.o quantification.o RGB.o RLE.o traitement.o zigzag.o htables_prof_mac.o huffman.o jpeg_writer.o bitstream.o magnitude.o
-	gcc -o img_generatorxx write_img.o decoupe_pgm.o DCT.o PGM_FILE.o quantification.o RGB.o RLE.o traitement.o zigzag.o htables_prof_mac.o huffman.o jpeg_writer.o bitstream.o magnitude.o -lm $(LDFLAGS)
+img_generator : write_img.o decoupe_pgm.o DCT.o PGM_FILE.o quantification.o RGB.o RLE.o traitement.o zigzag.o ../obj/htables.o huffman.o jpeg_writer.o bitstream.o magnitude.o
+	gcc -o ppm2jpeg_gray write_img.o decoupe_pgm.o DCT.o PGM_FILE.o quantification.o RGB.o RLE.o traitement.o zigzag.o ../obj/htables.o huffman.o jpeg_writer.o bitstream.o magnitude.o -lm $(LDFLAGS)
 
 
 write_img.o : write_img.c
@@ -69,4 +69,4 @@ bitstream.h : bitstream.c
 
 
 clean:
-	rm -rf write_img.o decoupe_pgm.o DCT.o PGM_FILE.o quantification.o RGB.o RLE.o traitement.o zigzag.o magnitude.o
+	rm -rf *.o

@@ -1,4 +1,4 @@
-CC = clang
+CC = gcc
 LD = gcc
 
 # -O0 désactive les optimisations à la compilation
@@ -9,11 +9,11 @@ CFLAGS = -Wall -Wextra -std=c99 -O0 -g
 
 all:ppm_generator
 
-rgb : decoupe.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o htables_prof_mac.o huffman.o jpeg_writer.o bitstream.o magnitude.o
-	$(CC) -o rgb decoupe.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o htables_prof_mac.o huffman.o jpeg_writer.o bitstream.o magnitude.o -lm
+rgb : decoupe.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o ../obj/htables.o huffman.o jpeg_writer.o bitstream.o magnitude.o
+	$(CC) -o rgb decoupe.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o ../obj/htables.o huffman.o jpeg_writer.o bitstream.o magnitude.o -lm
 
-ppm_generator : write_ppm.o decoupe.o DCT.o downsampling.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o htables_prof_mac.o huffman.o jpeg_writer.o bitstream.o magnitude.o
-	$(CC) -o ppm_generator write_ppm.o decoupe.o downsampling.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o htables_prof_mac.o huffman.o jpeg_writer.o bitstream.o magnitude.o -lm
+ppm_generator : write_ppm.o decoupe.o DCT.o downsampling.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o ../obj/htables.o huffman.o jpeg_writer.o bitstream.o magnitude.o
+	$(CC) -o ppm2jpeg_color write_ppm.o decoupe.o downsampling.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o ../obj/htables.o huffman.o jpeg_writer.o bitstream.o magnitude.o -lm
 
 
 write_ppm.o : write_ppm.c
@@ -73,4 +73,4 @@ downsampling.h : downsampling.c
 	$(CC) -c downsampling.c
 
 clean:
-	rm -rf write_ppm.o decoupe.o DCT.o PPM_FILE.o quantification.o RGB_Couleur.o RLE.o traitement.o zigzag.o magnitude.o downsampling.o
+	rm -rf *.o
